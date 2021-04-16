@@ -13,11 +13,25 @@ public class Delimiters
 
 	public ArrayList<String> getDelimitersList(String[] tokens)
 	{
-		return null;
+	ArrayList<String> delimiters = new ArrayList<String>();
+  for(int i=0;i<tokens.length;i++){
+if(tokens[i].equals(openDel)||tokens[i].equals(closeDel))
+delimiters.add(tokens[i]);
+  }
+  
+  	return delimiters;
 	}
 
 	public boolean isBalanced(ArrayList<String> delimiters)
 	{ 
-		return false;
+    int count=0;
+	for(int i=0;i<delimiters.size() && count>=0;i++){
+if(delimiters.get(i).equals(openDel))
+count++;
+if(delimiters.get(i).equals(closeDel))
+count--;
+  }
+  
+  	return count==0;
 	}
 }
